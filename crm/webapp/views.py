@@ -1,10 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
-from django.http import HttpResponse
+from.forms import CreateUserForm, Loginform
+
+# Create your views here
 
 def home(request):
 
-    #return HttpResponse('Hello World!')
-
     return render(request, 'webapp/index.html')
+
+# - Register a user
+
+def register (request):
+    form = CreateUserForm()
+
+    if request.method == "POST":
+
+        form = CreateUserForm(request.POST)
+
+        if form.is_valid():
+            
+            form.save()
+
+            #return redirect('')
+
+
+    context = { 'form' : form}
+
+    return render(request, 'webapp/register.html', context=context)
