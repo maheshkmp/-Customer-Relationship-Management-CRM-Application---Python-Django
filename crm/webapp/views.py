@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
 
+from . models import Record
+
 # Create your views here
 
 def home(request):
@@ -69,7 +71,11 @@ def my_login(request):
 
 def dashboard(request):
 
-    return render(request, 'webapp/dashboard.html')
+    my_records = Record.objects.all()
+
+    context = {'records': my_records}
+
+    return render(request, 'webapp/dashboard.html', context=context)
 
 
 
