@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
 
-from . models import Record
+from .models import Record
 
 # Create your views here
 
