@@ -9,11 +9,13 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Record
 
+
 # Create your views here
 
 def home(request):
 
     return render(request, 'webapp/index.html')
+
 
 # - Register a user
 
@@ -77,6 +79,7 @@ def dashboard(request):
 
     return render(request, 'webapp/dashboard.html', context=context)
 
+
 # - Create a record
 
 @login_required(login_url='my-login')
@@ -121,9 +124,9 @@ def update_record(request, pk):
 
             return redirect("dashboard")
         
-        context = {'form': form}
+    context = {'form': form}
 
-        return render(request, 'webapp/update-record.html', context=context)
+    return render(request, 'webapp/update-record.html', context=context)
     
 
 # - Read / View a singular record

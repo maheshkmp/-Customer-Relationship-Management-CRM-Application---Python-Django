@@ -7,30 +7,48 @@
         <div class="card-body">
 
             <strong>
+
                 {{record.last_name | upper}}
 
                 {{record.first_name}}
+
             </strong>
 
-            <p> <strong> ID: </strong></p> {{record.id}}
+            <br>
 
-            <p> <strong> Email: </strong></p> {{record.email}}
+            <br>
 
-            <p> <strong> Prone number: </strong></p> {{record.phone}}
+            <p> <strong> ID: </strong>  {{record.id}} </p> 
 
-            <p> <strong> ID: </strong></p> {{record.address}}
+            <p> <strong> Email: </strong>  {{record.email}} </p> 
 
-            <p> <strong> City: </strong></p> {{record.city}}
+            <p> <strong> Prone number: </strong>  {{phone}} </p> 
+
+            <p> <strong> ID: </strong>   {{record.address}} </p>
+
+            <p> <strong> City: </strong>   {{record.city}} </p>
             
-            <p> <strong> Province: </strong></p> {{record.province}}
+            <p> <strong> Province: </strong>  {{record.province}} </p> 
             
-            <p> <strong> Country: </strong></p> {{record.country}}
+            <p> <strong> Country: </strong>  {{record.country}} </p> 
             
-            <p> <strong> Creation_date: </strong></p> {{record.creation_date}}
+            <p> <strong> Creation_date: </strong>  {{record.creation_date}} </p> 
 
 
         </div>
 
     </div>
+
+    <br>
+
+    <a href=" {% url 'dashboard' %}" class="btn btn-secondary"> Return </a>
+
+    &nbsp;
+
+    <a href=" {% url 'update-record' record.id %}" class="btn btn-info"> Update record </a>
+
+    &nbsp;
+
+    <a href=" {% url '' %}" class="btn btn-danger"> Delete </a>
 
 {% endblock %}
