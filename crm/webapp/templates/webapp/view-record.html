@@ -8,13 +8,14 @@
 
             <strong>
 
+                &nbsp; &nbsp;
                 {{record.last_name | upper}}
 
                 {{record.first_name}}
 
             </strong>
 
-            <br>
+            <hr>
 
             <br>
 
@@ -49,6 +50,6 @@
 
     &nbsp;
 
-    <a href=" {% url '' %}" class="btn btn-danger"> Delete </a>
+    <a href=" {% url 'delete-record' record.id %}" class="btn btn-danger"> Delete </a>
 
 {% endblock %}
