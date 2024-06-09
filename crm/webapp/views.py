@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Record
 
+from django.contrib import messages
+
 
 # Create your views here
 
@@ -29,6 +31,8 @@ def register (request):
         if form.is_valid():
             
             form.save()
+
+            messages.success(request, " Account created successfully! ")
 
             return redirect("my-login")
 
@@ -58,6 +62,8 @@ def my_login(request):
             if user is not None:
 
                 auth.login(request, user)
+
+                messages.success(request, "You have logged")
 
                 return redirect("dashboard")
 
@@ -96,6 +102,8 @@ def create_record(request):
             
             form.save()
 
+            messages.success(request, "Your record was created!")
+
             return redirect("dashboard")
         
     context = {'form': form}
@@ -121,6 +129,8 @@ def update_record(request, pk):
         if form.is_valid():
 
             form.save()
+
+            messages.success(request, "Your record was updated!")
 
             return redirect("dashboard")
         
@@ -153,6 +163,8 @@ def delete_record(request, pk):
 
     record.delete()
 
+    messages.success(request, "Your record was deleted!")
+
     return redirect("dashboard")
 
 
@@ -162,6 +174,8 @@ def delete_record(request, pk):
 def user_logout(request):
 
     auth.logout(request)
+
+    messages.success(request, "Logout seccess!")
 
     return redirect("my-login")
             
