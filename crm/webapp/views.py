@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from.forms import CreateUserForm, Loginform, CreateRecordForm, UpdateRecordForm 
 
 from django.contrib.auth.models import auth 
+
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
