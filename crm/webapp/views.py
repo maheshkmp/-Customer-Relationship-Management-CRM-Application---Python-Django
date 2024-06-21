@@ -23,6 +23,7 @@ def home(request):
 # - Register a user
 
 def register (request):
+    
     form = CreateUserForm()
 
     if request.method == "POST":
